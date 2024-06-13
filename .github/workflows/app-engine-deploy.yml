@@ -16,9 +16,6 @@ on:
 jobs:
   deploy-appengine:
     name: "Deploy jit-access to test app engine instance"
-    permissions:
-      id-token: write
-      contents: read
     runs-on: "ubuntu-latest"
     steps:
       - name: "Checkout repository"
