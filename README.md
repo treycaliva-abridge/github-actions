@@ -1,2 +1,2 @@
 # github-templates
-Templates to be used elsewhere
+Reusable "called" workflows that can be invoked from other workflows "callers". 
