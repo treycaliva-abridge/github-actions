@@ -15,7 +15,7 @@ on:
 
 jobs:
   deploy-appengine:
-    name: "Deploy jit-access to test app engine instance"
+    name: "Deploy an app engine service"
     runs-on: "ubuntu-latest"
     steps:
       - name: "Checkout repository"
