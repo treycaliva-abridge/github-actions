@@ -1,0 +1,20 @@
+name: "Deploy to Test"
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+    paths:
+      - "sources/**"
+
+jobs:
+  deploy-test:
+    name: "Deploy my app engine application"
+    uses: abridgeai/github-templates/.github/workflows/app-engine-deploy.yml@main
+    permissions:
+      id-token: write
+      contents: read
+      pull-requests: write
+    with:
+      app-yaml-path: "sources/app-test.yaml"
+      GCP_SA_EMAIL: ${{ vars.GCP_SA_EMAIL_OPERATIONS }}
+      GCP_WORKLOAD_IDENTITY_PROVIDER: ${{ vars.GCP_WORKLOAD_IDENTITY_PROVIDER_OPERATIONS }}
