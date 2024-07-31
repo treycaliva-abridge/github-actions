@@ -13,8 +13,8 @@ You should have access to create new repos within the `abridgeai` organization i
 1. After repos are cloned, Set up your repo's [workload identity permissions](#workload-identity-permissions) (you can make your own Terraform PR or contact Platform team so they can add them). You'll probably need to reference the roles attached to the GCP Service Account currently being used by your pipeline in Bitbucket.
 1. Migrate `bitbucket-pipeline.yaml` to Github Action Workflows. See [Github Workflows](#github-workflows). Please consult with Platform team if you run into any issues converting your pipeline. 
 1. Deprecate the old Bitbucket repo
-  - Move to `Graveyard` Bitbucket project
-  - Add repo description calling it out as migrated. [Example](https://bitbucket.org/abridge-ai/heimdall/src/main/)
+    - Move to `Graveyard` Bitbucket project
+    - Add repo description calling it out as migrated. [Example](https://bitbucket.org/abridge-ai/heimdall/src/main/)
 
 ## Workload Identity Permissions 
 
