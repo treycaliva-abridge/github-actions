@@ -82,7 +82,6 @@ These repo variables are automatically added to your repo after the auth has bee
 
 ```
 GCP_WORKLOAD_IDENTITY_PROVIDER_<ENV_NAME>
-
 ```
 Here are all current options: 
 ```
