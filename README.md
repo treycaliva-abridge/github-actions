@@ -61,15 +61,45 @@ Github has great [documentation](https://docs.github.com/en/actions/using-workfl
 - [App Engine Deploy to Single GCP Project](https://github.com/abridgeai/jit-access/blob/main/.github/workflows/deploy-prod.yml)
 - [Multi-environment Cloud Function, Scheduler, & App Engine Deploy w/ Integration Tests](https://github.com/abridgeai/data-governance/tree/main/.github/workflows)
 
+### Authentication to GCP w/ Workload Identity
+
+Since we use workload identity to Authenticate to GCP from Github, there's no longer a need for Service Account Keys to be saved as repo variables. Instead, you can use the following as a step to auth to GCP: 
+
+```
+- id: "auth"
+  uses: "google-github-actions/auth@v2"
+  with:
+    workload_identity_provider: ${{ vars.GCP_WORKLOAD_IDENTITY_PROVIDER_ARTIFACT_REGISTRY }}
+    service_account: ${{ vars.GCP_SA_EMAIL_ARTIFACT_REGISTRY }}
+```
+
+The variables are automatically added to your repo after the auth has been set up in Terraform [above](#workload-identity-permissions). They will be in this format: 
+
+```
+GCP_WORKLOAD_IDENTITY_PROVIDER_<ENV_NAME>
+
+```
+Here are all current options: 
+```
+# Workload Identity
+GCP_WORKLOAD_IDENTITY_PROVIDER_ARTIFACT_REGISTRY
+GCP_WORKLOAD_IDENTITY_PROVIDER_DEVELOPMENT
+GCP_WORKLOAD_IDENTITY_PROVIDER_STAGING
+GCP_WORKLOAD_IDENTITY_PROVIDER_PRODUCTION
+
+# SA Email
+GCP_SA_EMAIL_ARTIFACT_REGISTRY
+GCP_SA_EMAIL_DEVELOPMENT
+GCP_SA_EMAIL_STAGING
+GCP_SA_EMAIL_PRODUCTION
+```
+
 ### Deploy Steps
 
 It's highly recommended to leverage [Google's Github Actions](https://github.com/google-github-actions) where possible as they maintain these integrations regularly. Here are the main ones we recommend using: 
 
 - `deploy-appengine` -- [https://github.com/google-github-actions/deploy-appengine](https://github.com/google-github-actions/deploy-cloud-functions)
 - `deploy-cloudfunctions` -- [https://github.com/google-github-actions/deploy-cloud-functions](https://github.com/google-github-actions/deploy-cloud-functions)
-
-### Authentication to GCP w/ Workload Identity
-
 
 ### Shared Workflows
 
