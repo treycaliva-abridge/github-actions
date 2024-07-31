@@ -10,8 +10,11 @@ You should have access to create new repos within the `abridgeai` organization i
 
 1. Reach out to Platform team to have them clone the repo into Github
 2. Provide list of users to platform team on who should have access to the repo.
-3. Make sure [workload identity permissions](#workload-identity-permissions) are set up correctly (you can make your own Terraform PR or contact Platform team so they can add them). You'll probably need to reference the roles attached to the GCP Service Account currently being used by Bitbucket.
-4. Migrate `bitbucket-pipeline.yaml` to Github Action Workflows. See [Github Workflows](#github-workflows). Consult with Platform team if you run into any issues. 
+3. Make sure [workload identity permissions](#workload-identity-permissions) are set up correctly (you can make your own Terraform PR or contact Platform team so they can add them). You'll probably need to reference the roles attached to the GCP Service Account currently being used by your pipeline in Bitbucket.
+4. Migrate `bitbucket-pipeline.yaml` to Github Action Workflows. See [Github Workflows](#github-workflows). Please consult with Platform team if you run into any issues.
+5. Deprecate Bitbucket repo
+  - Move to `Graveyard` Bitbucket project
+  - Add repo description calling it out as migrated. [Example](https://bitbucket.org/abridge-ai/heimdall/src/main/)
 
 ## Workload Identity Permissions 
 
@@ -54,7 +57,9 @@ Github Auth Terraform Setup By GCP Project:
 
 ## Github Workflows 
 
-Github has great [documentation](https://docs.github.com/en/actions/using-workflows/about-workflows) on setting up your workflows. Here are some example ones you can reference depending on your needs: 
+### Getting Started With Workflows
+
+Github has great [documentation](https://docs.github.com/en/actions/using-workflows/about-workflows) on setting up your workflows. Here are some examples currently used at Abridge that you can reference depending on your needs: 
 - [Example App Engine Deploy](https://github.com/abridgeai/github-templates/blob/main/examples/sample-app-engine-deploy.yml)
 - [Example Cloud Function Deploy](https://github.com/abridgeai/github-templates/blob/main/examples/sample-app-engine-deploy.yml)
 - [Python Library Build and Publish to Artifact Registry](https://github.com/abridgeai/heimdall/blob/main/.github/workflows/deploy.yml)
@@ -94,7 +99,7 @@ GCP_SA_EMAIL_STAGING
 GCP_SA_EMAIL_PRODUCTION
 ```
 
-### Deploy Steps
+### Deploy Steps (CD)
 
 It's highly recommended to leverage [Google's Github Actions](https://github.com/google-github-actions) where possible as they maintain these integrations regularly. Here are the main ones we recommend using: 
 
@@ -103,10 +108,12 @@ It's highly recommended to leverage [Google's Github Actions](https://github.com
 
 ### Shared Workflows
 
-#### App Engine Deploy 
+Shared workflows are mechanisms for reusing the same workflow from multiple repos. These can be referenced within the same repo (see the `data-governance` repo for an [example](https://github.com/abridgeai/data-governance/tree/main/.github/workflows) of this) or from a centralized repo in the org -- [`github-templates`](https://github.com/abridgeai/github-templates) (see `jit-access` repo for an [example](https://github.com/abridgeai/jit-access/blob/main/.github/workflows/deploy-prod.yml) of doing this). 
 
-[Example](examples/sample-app-engine-deploy.yml) of invoking the `app-engine-deploy.yml` shared workflow
+If you believe your workflow setup could be used across the org, feel free to add it to the `github-templates` repo in `.github/workflows`. 
 
-#### Cloud Function Deploy 
+Here are some basic examples:
 
-[Example](examples/sample-cloud-function-deploy.yml)  of invoking the `cloud-function-deploy.yml` shared workflow
+- [Example](examples/sample-app-engine-deploy.yml) of invoking the `app-engine-deploy.yml` shared workflow
+
+- [Example](examples/sample-cloud-function-deploy.yml)  of invoking the `cloud-function-deploy.yml` shared workflow
