@@ -104,6 +104,7 @@ It's highly recommended to leverage [Google's Github Actions](https://github.com
 
 - `deploy-appengine` -- [https://github.com/google-github-actions/deploy-appengine](https://github.com/google-github-actions/deploy-cloud-functions)
 - `deploy-cloudfunctions` -- [https://github.com/google-github-actions/deploy-cloud-functions](https://github.com/google-github-actions/deploy-cloud-functions)
+- `setup-gcloud` -- For any gcloud commands that can't be done with the above actions. [https://github.com/google-github-actions/setup-gcloud](https://github.com/google-github-actions/setup-gcloud)
 
 ### Shared Workflows
 
