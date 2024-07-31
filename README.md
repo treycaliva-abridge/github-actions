@@ -78,7 +78,7 @@ Since we use workload identity to Authenticate to GCP from Github, there's no lo
     service_account: ${{ vars.GCP_SA_EMAIL_ARTIFACT_REGISTRY }}
 ```
 
-The variables are automatically added to your repo after the auth has been set up in Terraform [above](#workload-identity-permissions). They will be in this format: 
+These repo variables are automatically added to your repo after the auth has been set up in Terraform [above](#workload-identity-permissions). They will be in this format: 
 
 ```
 GCP_WORKLOAD_IDENTITY_PROVIDER_<ENV_NAME>
