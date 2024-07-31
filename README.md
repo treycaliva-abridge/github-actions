@@ -9,7 +9,7 @@ You should have access to create new repos within the `abridgeai` organization i
 ## Migrating a Repo from Bitbucket to Github
 
 1. Create a [linear ticket](https://linear.app/abridge/team/PLA/new?template=a3e8c329-a7da-4e0d-a59b-a5dbb52e075b) with the Platform team to have them clone the repo(s) into Github
-    1. Please also include the list of users who should be given maintainer access to the repo. 
+    - Please also include the list of users who should be given maintainer access to the repo. 
 1. After repos are cloned, Set up your repo's [workload identity permissions](#workload-identity-permissions) (you can make your own Terraform PR or contact Platform team so they can add them). You'll probably need to reference the roles attached to the GCP Service Account currently being used by your pipeline in Bitbucket.
 1. Migrate `bitbucket-pipeline.yaml` to Github Action Workflows. See [Github Workflows](#github-workflows). Please consult with Platform team if you run into any issues converting your pipeline. 
 1. Deprecate the old Bitbucket repo
