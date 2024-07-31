@@ -20,10 +20,10 @@ Every github repo has it's own service account to use with workload identity. Mo
 Make sure the shared-infra Terraform for the environment you're wanting to deploy to from Github actions has the proper permissioning set up. 
 
 Github Auth Terraform Setup Links By GCP Project: 
-[abridge-artifact-registry](https://github.com/abridgeai/infrastructure/blob/4fd570ac41eb4022595227bf2bc179190e855308/tf-live/artifact-registry/shared-github-auth/terragrunt.hcl#L19)
-[client-dev-e301d (development)](https://github.com/abridgeai/infrastructure/blob/4fd570ac41eb4022595227bf2bc179190e855308/tf-live/development/shared-github-auth/terragrunt.hcl#L19)
-[abridge-client-staging](https://github.com/abridgeai/infrastructure/blob/4fd570ac41eb4022595227bf2bc179190e855308/tf-live/staging/shared-github-auth/terragrunt.hcl#L19)
-[abridge-client-production](https://github.com/abridgeai/infrastructure/blob/4fd570ac41eb4022595227bf2bc179190e855308/tf-live/production/shared-github-auth/terragrunt.hcl#L19)
+- [abridge-artifact-registry](https://github.com/abridgeai/infrastructure/blob/4fd570ac41eb4022595227bf2bc179190e855308/tf-live/artifact-registry/shared-github-auth/terragrunt.hcl#L19)
+- [client-dev-e301d (development)](https://github.com/abridgeai/infrastructure/blob/4fd570ac41eb4022595227bf2bc179190e855308/tf-live/development/shared-github-auth/terragrunt.hcl#L19)
+- [abridge-client-staging](https://github.com/abridgeai/infrastructure/blob/4fd570ac41eb4022595227bf2bc179190e855308/tf-live/staging/shared-github-auth/terragrunt.hcl#L19)
+- [abridge-client-production](https://github.com/abridgeai/infrastructure/blob/4fd570ac41eb4022595227bf2bc179190e855308/tf-live/production/shared-github-auth/terragrunt.hcl#L19)
 
 ## Github Workflows 
 
