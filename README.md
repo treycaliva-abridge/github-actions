@@ -65,8 +65,8 @@ Github has great [documentation](https://docs.github.com/en/actions/using-workfl
 
 It's highly recommended to leverage [Google's Github Actions](https://github.com/google-github-actions) where possible as they maintain these integrations regularly. Here are the main ones we recommend using: 
 
-`deploy-appengine` -- [https://github.com/google-github-actions/deploy-appengine](https://github.com/google-github-actions/deploy-cloud-functions)
-`deploy-cloudfunctions` -- [https://github.com/google-github-actions/deploy-cloud-functions](https://github.com/google-github-actions/deploy-cloud-functions)
+- `deploy-appengine` -- [https://github.com/google-github-actions/deploy-appengine](https://github.com/google-github-actions/deploy-cloud-functions)
+- `deploy-cloudfunctions` -- [https://github.com/google-github-actions/deploy-cloud-functions](https://github.com/google-github-actions/deploy-cloud-functions)
 
 ### Authentication to GCP w/ Workload Identity
 
