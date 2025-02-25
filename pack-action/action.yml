@@ -21,7 +21,7 @@ runs:
       # uses: buildpacks/github-actions/setup-pack@v4.6.0
       uses: ../setup-pack@v4.6.0
       with:
-        pack-version: {{ inputs.versions }}
+        pack-version: {{ inputs.version }}
     - id: cleanup
       shell: bash
       run: |
