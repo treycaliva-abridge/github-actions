@@ -18,7 +18,6 @@ runs:
   using: "composite"
   steps:
     - id: install
-      # uses: buildpacks/github-actions/setup-pack@v4.6.0
       uses: ../setup-pack
       with:
         pack-version: {{ inputs.version }}
