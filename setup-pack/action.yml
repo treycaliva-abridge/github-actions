@@ -1,0 +1,40 @@
+name:        'Setup pack CLI'
+description: 'Install the Cloud Native Buildpacks pack CLI and add it to $PATH'
+author:      'Cloud Native Buildpacks'
+
+inputs:
+  pack-version:
+    description: 'The version of pack to install'
+    required:    false
+    default:     '0.36.4'
+
+runs:
+  using: "composite"
+  steps:
+  - name:  Install pack CLI
+    shell: bash
+    run:   |
+           #!/usr/bin/env bash
+
+           set -euo pipefail
+
+           mkdir -p "${HOME}"/bin
+           echo "PATH=${HOME}/bin:${PATH}" >> "${GITHUB_ENV}"
+
+           PLATFORM="linux"
+           if [ $(arch) = "aarch64" ]; then
+              PLATFORM="linux-arm64"
+           fi
+
+           PACK_VERSION=${{ inputs.pack-version }}
+           echo "Installing pack ${PACK_VERSION}"
+           curl \
+             --show-error \
+             --silent \
+             --location \
+             --fail \
+             --retry 3 \
+             --connect-timeout 5 \
+             --max-time 60 \
+             "https://github.com/buildpacks/pack/releases/download/v${PACK_VERSION}/pack-v${PACK_VERSION}-${PLATFORM}.tgz" \
+           | tar -C "${HOME}/bin" -xz pack
